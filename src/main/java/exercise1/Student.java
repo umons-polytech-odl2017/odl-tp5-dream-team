@@ -88,8 +88,11 @@ public class Student {
      *
      * @return the highest score or 0 if there is none.
      */
-    public int bestScore() {
-        return 0;
+    public Optional<Integer> bestScore() {
+        return scoreByCourse.entrySet().stream()
+            .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+            .map(Map.Entry::getValue)
+            .findFirst();
     }
 
     /**
@@ -128,7 +131,10 @@ public class Student {
     /**
      * Returns the set of courses for which the student has received a score, sorted by course name.
      */
-    public Set<String> attendedCourses() { return null; }
+    public Set<String> attendedCourses() {
+
+        return null;
+    }
 
     public String getName() {
         return name;
