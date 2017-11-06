@@ -1,5 +1,6 @@
 package exercise1;
 
+import java.util.Map;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Set;
@@ -11,13 +12,20 @@ import java.util.Set;
  * These scores are expressed as integers on a scale from 0 to 20.
  */
 public class Student {
+    private String name;
+    private String registrationNumber; /** déclaration des variables*/
+    private int score;
+    /**private Map<String, Integer>;*/
+
     /**
      * Creates a new Student.
      *
      * @throws NullPointerException if one of the parameter is null.
      */
-    public Student(String name, String registrationNumber) {
 
+    public Student(String name, String registrationNumber) {
+        this.name=name;
+        this.registrationNumber=registrationNumber;
     }
 
     /**
@@ -27,8 +35,11 @@ public class Student {
      * @throws NullPointerException if the course name is null.
      * @throws IllegalArgumentException if the score is less than 0 or greater than 20.
      */
-    public void setScore(String course, int score) {
+        return score;
 
+    public void setScore(String course, int score) throws NullPointerException, IllegalArgumentException {
+
+        this.score=score;
     }
 
     /**
@@ -37,6 +48,7 @@ public class Student {
      * @return the score if found, <code>OptionalInt#empty()</code> otherwise.
      */
     public OptionalInt getScore(String course) {
+
         return null;
     }
 
@@ -46,6 +58,7 @@ public class Student {
      * @return the average score or 0 if there is none.
      */
     public double averageScore() {
+
         return 0;
     }
 
@@ -55,6 +68,7 @@ public class Student {
      * @return the best scored course or <code>Optional#empty()</code> if there is none.
      */
     public Optional<String> bestCourse() {
+
         return null;
     }
 
@@ -64,6 +78,7 @@ public class Student {
      * @return the highest score or 0 if there is none.
      */
     public int bestScore() {
+
         return 0;
     }
 
@@ -72,6 +87,7 @@ public class Student {
      * A course is considered as passed if its score is higher than 12.
      */
     public Set<String> failedCourses() {
+
         return null;
     }
 
@@ -79,20 +95,26 @@ public class Student {
      * Returns <code>true</code> if the student has an average score greater than or equal to 12.0 and has less than 3 failed courses.
      */
     public boolean isSuccessful() {
+
         return false;
     }
 
     /**
      * Returns the set of courses for which the student has received a score, sorted by course name.
      */
-    public Set<String> attendedCourses() { return null; }
+    public Set<String> attendedCourses() {
 
-    public String getName() {
         return null;
     }
 
+    public String getName() {
+
+        return name;
+    }
+
     public String getRegistrationNumber() {
-        return null;
+import java.util.Set;
+        return registrationNumber;
     }
 
     @Override
