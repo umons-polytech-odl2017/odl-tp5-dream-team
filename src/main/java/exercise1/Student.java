@@ -1,7 +1,6 @@
 package exercise1;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static java.util.Objects.requireNonNull;
 
@@ -88,11 +87,13 @@ public class Student {
      *
      * @return the highest score or 0 if there is none.
      */
-    public Optional<Integer> bestScore() {
+    public int bestScore() {
+
         return scoreByCourse.entrySet().stream()
             .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
             .map(Map.Entry::getValue)
-            .findFirst();
+            .findFirst()
+            .orElse(0);
     }
 
     /**
